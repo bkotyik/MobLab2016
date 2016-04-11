@@ -17,13 +17,14 @@ import javax.inject.Inject;
 
 import bkotyik.mobsoft2016.IndoorMapApplication;
 import bkotyik.mobsoft2016.R;
+import bkotyik.mobsoft2016.adapters.FloorListAdapter;
 import bkotyik.mobsoft2016.model.FloorModel;
 import bkotyik.mobsoft2016.presenter.MainPresenter;
 
 public class MainActivity extends AppCompatActivity implements MainView {
 
     private ListView floorListView = null;
-    private ArrayAdapter<String> listAdapter;
+    private FloorListAdapter listAdapter;
 
     @Inject
     MainPresenter mainPresenter;
@@ -49,8 +50,8 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     @Override
     public void showFloors(List<FloorModel> floors) {
-        //floorListView = (ListView)findViewById(R.id.floorListView);
-        //listAdapter = new ArrayAdapter<String>(this, R.layout.simple_row, floors);
-        //floorListView.setAdapter( listAdapter );
+        floorListView = (ListView)findViewById(R.id.floorListView);
+        listAdapter = new FloorListAdapter(getApplicationContext(),floors);
+        floorListView.setAdapter( listAdapter );
     }
 }

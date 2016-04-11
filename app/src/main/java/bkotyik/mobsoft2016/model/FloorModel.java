@@ -9,4 +9,8 @@ public class FloorModel {
     public FloorModel() {
 
     }
+
+    public String getName() {
+        return this.name;
+    }
 }
