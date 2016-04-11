@@ -2,7 +2,7 @@ package bkotyik.mobsoft2016.interactor;
 
 import javax.inject.Inject;
 
-import bkotyik.mobsoft2016.MVPApplication;
+import bkotyik.mobsoft2016.IndoorMapApplication;
 import bkotyik.mobsoft2016.model.StringModel;
 
 public class StringInteractor {
@@ -10,7 +10,7 @@ public class StringInteractor {
     StringModel model;
 
     public StringInteractor() {
-        MVPApplication.injector.inject(this);
+        IndoorMapApplication.injector.inject(this);
     }
 
     public String getString() {

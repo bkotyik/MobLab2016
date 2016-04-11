@@ -3,11 +3,9 @@ package bkotyik.mobsoft2016.view;
 import android.content.Context;
 
 import javax.inject.Singleton;
-
+import bkotyik.mobsoft2016.presenter.MainPresenter;
 import dagger.Module;
 import dagger.Provides;
-import bkotyik.mobsoft2016.MainPresenter;
-
 
 @Module
 public class ViewModule {

@@ -2,7 +2,7 @@ package bkotyik.mobsoft2016.presenter;
 
 import javax.inject.Inject;
 
-import bkotyik.mobsoft2016.MVPApplication;
+import bkotyik.mobsoft2016.IndoorMapApplication;
 import bkotyik.mobsoft2016.interactor.StringInteractor;
 import bkotyik.mobsoft2016.view.MainView;
 
@@ -12,7 +12,7 @@ public class MainPresenter extends Presenter<MainView> {
     public StringInteractor interactor;
 
     public MainPresenter() {
-        MVPApplication.injector.inject(this);
+        IndoorMapApplication.injector.inject(this);
     }
 
     public void doStuff() {
