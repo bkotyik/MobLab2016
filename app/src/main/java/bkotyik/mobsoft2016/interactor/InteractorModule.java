@@ -6,7 +6,6 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import bkotyik.mobsoft2016.MainPresenter;
 
 @Module
 public class InteractorModule {
