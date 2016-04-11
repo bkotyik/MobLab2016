@@ -6,7 +6,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -19,6 +21,9 @@ import bkotyik.mobsoft2016.model.FloorModel;
 import bkotyik.mobsoft2016.presenter.MainPresenter;
 
 public class MainActivity extends AppCompatActivity implements MainView {
+
+    private ListView floorListView = null;
+    private ArrayAdapter<String> listAdapter;
 
     @Inject
     MainPresenter mainPresenter;
@@ -44,6 +49,8 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     @Override
     public void showFloors(List<FloorModel> floors) {
-
+        //floorListView = (ListView)findViewById(R.id.floorListView);
+        //listAdapter = new ArrayAdapter<String>(this, R.layout.simple_row, floors);
+        //floorListView.setAdapter( listAdapter );
     }
 }
