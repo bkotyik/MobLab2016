@@ -6,7 +6,7 @@ import dagger.Provides;
 @Module
 public class ModelModule {
     @Provides
-    public StringModel getStringModel() {
-        return new StringModel();
+    public BuildingModel getBuildingModel() {
+        return new BuildingModel();
     }
 }
