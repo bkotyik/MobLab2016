@@ -9,10 +9,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import bkotyik.mobsoft2016.IndoorMapApplication;
 import bkotyik.mobsoft2016.R;
+import bkotyik.mobsoft2016.model.FloorModel;
 import bkotyik.mobsoft2016.presenter.MainPresenter;
 
 public class MainActivity extends AppCompatActivity implements MainView {
@@ -40,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
     }
 
     @Override
-    public void showString(String s) {
+    public void showFloors(List<FloorModel> floors) {
 
     }
 }
