@@ -9,4 +9,8 @@ public class ModelModule {
     public FloorModel getBuildingModel() {
         return new FloorModel();
     }
+    @Provides
+    public EmployeeModel getEmployeeModel() {
+        return new EmployeeModel();
+    }
 }

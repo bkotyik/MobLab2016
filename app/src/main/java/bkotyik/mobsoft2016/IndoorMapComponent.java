@@ -2,6 +2,7 @@ package bkotyik.mobsoft2016;
 
 import javax.inject.Singleton;
 
+import bkotyik.mobsoft2016.interactor.EmployeeInteractor;
 import bkotyik.mobsoft2016.interactor.FloorInteractor;
 import bkotyik.mobsoft2016.interactor.InteractorModule;
 import bkotyik.mobsoft2016.model.ModelModule;
@@ -17,4 +18,5 @@ public interface IndoorMapComponent {
     void inject(MainActivity mainActivity);
     void inject(MainPresenter mainPresenter);
     void inject(FloorInteractor floorInteractor);
+    void inject(EmployeeInteractor employeeInteractor);
 }

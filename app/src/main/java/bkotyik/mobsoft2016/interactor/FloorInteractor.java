@@ -21,4 +21,9 @@ public class FloorInteractor {
     public List<FloorModel> getFloors() {
         return floors;
     }
+
+    public FloorModel getFloor(int i) {
+        return this.floors.get(i);
+    }
+
 }

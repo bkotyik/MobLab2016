@@ -26,32 +26,34 @@ public class MainActivity extends AppCompatActivity implements MainView {
     private ListView floorListView = null;
     private FloorListAdapter listAdapter;
 
-    @Inject
-    MainPresenter mainPresenter;
+    //@Inject
+    //MainPresenter mainPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        IndoorMapApplication.injector.inject(this);
+        //IndoorMapApplication.injector.inject(this);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        mainPresenter.attachView(this);
+        //mainPresenter.attachView(this);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mainPresenter.detachView();
+        //mainPresenter.detachView();
     }
 
     @Override
     public void showFloors(List<FloorModel> floors) {
+        /*
         floorListView = (ListView)findViewById(R.id.floorListView);
         listAdapter = new FloorListAdapter(getApplicationContext(),floors);
         floorListView.setAdapter( listAdapter );
+        */
     }
 }

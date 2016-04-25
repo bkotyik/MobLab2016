@@ -13,4 +13,9 @@ public class InteractorModule {
     public FloorInteractor getFloorInteractor() {
         return new FloorInteractor();
     }
+
+    @Provides
+    public EmployeeInteractor getEmployeeInteractor() {
+        return new EmployeeInteractor();
+    }
 }
