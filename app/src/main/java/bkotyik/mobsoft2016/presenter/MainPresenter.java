@@ -12,7 +12,7 @@ public class MainPresenter extends Presenter<MainView> {
     public FloorInteractor interactor;
 
     public MainPresenter() {
-        IndoorMapApplication.injector.inject(this);
+
     }
 
     public void doStuff() {
