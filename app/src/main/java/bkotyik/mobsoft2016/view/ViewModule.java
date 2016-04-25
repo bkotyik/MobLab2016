@@ -6,6 +6,7 @@ import javax.inject.Singleton;
 
 import bkotyik.mobsoft2016.presenter.EmployeeSearchPresenter;
 import bkotyik.mobsoft2016.presenter.FloorDetailsPresenter;
+import bkotyik.mobsoft2016.presenter.FloorEditorPresenter;
 import bkotyik.mobsoft2016.presenter.MainPresenter;
 import dagger.Module;
 import dagger.Provides;
@@ -39,5 +40,11 @@ public class ViewModule {
     @Singleton
     public EmployeeSearchPresenter getEmployeeSearchPresenter() {
         return new EmployeeSearchPresenter();
+    }
+
+    @Provides
+    @Singleton
+    public FloorEditorPresenter getFloorEditorPresenter() {
+        return new FloorEditorPresenter();
     }
 }
