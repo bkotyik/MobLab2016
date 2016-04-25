@@ -3,6 +3,8 @@ package bkotyik.mobsoft2016.view;
 import android.content.Context;
 
 import javax.inject.Singleton;
+
+import bkotyik.mobsoft2016.presenter.FloorDetailsPresenter;
 import bkotyik.mobsoft2016.presenter.MainPresenter;
 import dagger.Module;
 import dagger.Provides;
@@ -24,5 +26,11 @@ public class ViewModule {
     @Singleton
     public MainPresenter getMainPresenter() {
         return new MainPresenter();
+    }
+
+    @Provides
+    @Singleton
+    public FloorDetailsPresenter getFloorDetailsPresenter() {
+        return new FloorDetailsPresenter();
     }
 }
