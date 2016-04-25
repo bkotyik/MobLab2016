@@ -4,6 +4,7 @@ import android.content.Context;
 
 import javax.inject.Singleton;
 
+import bkotyik.mobsoft2016.presenter.EmployeeSearchPresenter;
 import bkotyik.mobsoft2016.presenter.FloorDetailsPresenter;
 import bkotyik.mobsoft2016.presenter.MainPresenter;
 import dagger.Module;
@@ -32,5 +33,11 @@ public class ViewModule {
     @Singleton
     public FloorDetailsPresenter getFloorDetailsPresenter() {
         return new FloorDetailsPresenter();
+    }
+
+    @Provides
+    @Singleton
+    public EmployeeSearchPresenter getEmployeeSearchPresenter() {
+        return new EmployeeSearchPresenter();
     }
 }
