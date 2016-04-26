@@ -1,8 +1,11 @@
 package bkotyik.mobsoft2016.model;
 
+import com.orm.dsl.Table;
+
+@Table
 public class FloorModel {
 
-    private int id;
+    private Long id;
     private String name;
     private String description;
 
