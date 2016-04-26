@@ -3,10 +3,14 @@ package bkotyik.mobsoft2016.view;
 import android.app.Activity;
 import android.os.Bundle;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import bkotyik.mobsoft2016.IndoorMapApplication;
 import bkotyik.mobsoft2016.R;
+import bkotyik.mobsoft2016.model.EmployeeModel;
+import bkotyik.mobsoft2016.model.FloorModel;
 import bkotyik.mobsoft2016.presenter.FloorDetailsPresenter;
 import bkotyik.mobsoft2016.presenter.MainPresenter;
 
@@ -31,5 +35,15 @@ public class FloorDetailsActivity extends Activity implements FloorDetailsView {
     protected void onDestroy() {
         super.onDestroy();
         mainPresenter.detachView();
+    }
+
+    @Override
+    public void showFloorDetails(FloorModel m) {
+
+    }
+
+    @Override
+    public void showEmployeeList(List<EmployeeModel> employeeModelList) {
+
     }
 }

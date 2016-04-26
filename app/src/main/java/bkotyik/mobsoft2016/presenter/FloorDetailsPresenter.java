@@ -16,4 +16,7 @@ public class FloorDetailsPresenter extends Presenter<FloorDetailsView> {
     public FloorDetailsPresenter() {
 
     }
+
+    public void deleteFloor() {}
+    public void editFloor() {}
 }
