@@ -1,4 +1,6 @@
 package bkotyik.mobsoft2016.presenter;
 
-public class FloorEditorPresenter extends Presenter<FloorEditorPresenter> {
+import bkotyik.mobsoft2016.view.FloorEditorView;
+
+public class FloorEditorPresenter extends Presenter<FloorEditorView> {
 }

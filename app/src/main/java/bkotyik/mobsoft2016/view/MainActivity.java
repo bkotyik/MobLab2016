@@ -39,13 +39,13 @@ public class MainActivity extends AppCompatActivity implements MainView {
     @Override
     protected void onStart() {
         super.onStart();
-        //mainPresenter.attachView(this);
+        mainPresenter.attachView(this);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        //mainPresenter.detachView();
+        mainPresenter.detachView();
     }
 
     @Override
