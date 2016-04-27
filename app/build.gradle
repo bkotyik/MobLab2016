@@ -18,6 +18,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+        mock {
+            applicationId "bkotyik.mobsoft2016.test"
+            versionName "1.0-test"
+        }
+        full {
+            applicationId "bkotyik.mobsoft2016.full"
+            versionName "1.0-full"
+        }
+    }
 }
 
 dependencies {
