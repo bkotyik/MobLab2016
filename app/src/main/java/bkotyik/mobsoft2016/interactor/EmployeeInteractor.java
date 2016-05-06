@@ -11,7 +11,8 @@ import bkotyik.mobsoft2016.model.FloorModel;
 
 public class EmployeeInteractor {
     @Inject
-    EmployeeInteractor model;
+    EmployeeModel model;
+
     private List<EmployeeModel> employees;
 
     public EmployeeInteractor() {
