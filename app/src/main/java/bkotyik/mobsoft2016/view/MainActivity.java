@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.orm.SugarContext;
+
 import java.util.List;
 
 import javax.inject.Inject;
@@ -34,6 +36,8 @@ public class MainActivity extends AppCompatActivity implements MainView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         IndoorMapApplication.injector.inject(this);
+
+        SugarContext.init(this);
     }
 
     @Override

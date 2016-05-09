@@ -26,6 +26,10 @@ public class Employee   {
         this.name = _name;
     }
 
+    public Employee() {
+
+    }
+
 
     /**
      * A munkatars egyedi azonositoja

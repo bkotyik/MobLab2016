@@ -26,9 +26,9 @@ public class MockInterceptor implements Interceptor {
         Headers headers = request.headers();
 
 
-        if (uri.getPath().startsWith(NetworkConfig.ENDPOINT_PREFIX + "employee")) {
+        if (uri.getPath().startsWith(NetworkConfig.ENDPOINT_PREFIX + "employees")) {
             return EmployeeMock.process(request);
-        } else if (uri.getPath().startsWith(NetworkConfig.ENDPOINT_PREFIX + "employee/add")) {
+        } else if (uri.getPath().startsWith(NetworkConfig.ENDPOINT_PREFIX + "employees")) {
             return EmployeeMock.process(request);
         } else {
             return MockHelper.makeResponse(request, headers, 404, "Unknown");
