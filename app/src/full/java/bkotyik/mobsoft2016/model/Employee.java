@@ -22,6 +22,9 @@ public class Employee   {
     @SerializedName("floorId")
     private Integer floorId = null;
 
+    public Employee(String _name) {
+        this.name = _name;
+    }
 
 
     /**
