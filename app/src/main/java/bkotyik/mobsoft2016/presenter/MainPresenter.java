@@ -4,7 +4,7 @@ import javax.inject.Inject;
 
 import bkotyik.mobsoft2016.IndoorMapApplication;
 import bkotyik.mobsoft2016.interactor.FloorInteractor;
-import bkotyik.mobsoft2016.model.FloorModel;
+import bkotyik.mobsoft2016.model.Floor;
 import bkotyik.mobsoft2016.view.MainView;
 
 public class MainPresenter extends Presenter<MainView> {
@@ -19,6 +19,6 @@ public class MainPresenter extends Presenter<MainView> {
     public void activate() {
         view.showFloors(interactor.getFloors());
     }
-    public void selectFloor(FloorModel floorModel) {}
+    public void selectFloor(Floor Floor) {}
     public void addFloor() {}
 }

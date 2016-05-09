@@ -6,8 +6,8 @@ import java.util.List;
 import javax.inject.Inject;
 import bkotyik.mobsoft2016.IndoorMapApplication;
 import bkotyik.mobsoft2016.R;
-import bkotyik.mobsoft2016.model.EmployeeModel;
-import bkotyik.mobsoft2016.model.FloorModel;
+import bkotyik.mobsoft2016.model.Employee;
+import bkotyik.mobsoft2016.model.Floor;
 import bkotyik.mobsoft2016.presenter.FloorEditorPresenter;
 
 public class FloorEditorActivity extends Activity implements FloorEditorView {
@@ -35,12 +35,12 @@ public class FloorEditorActivity extends Activity implements FloorEditorView {
     }
 
     @Override
-    public void showFloorDetails(FloorModel floorModel) {
+    public void showFloorDetails(Floor Floor) {
 
     }
 
     @Override
-    public void showEmployees(List<EmployeeModel> employeeModels) {
+    public void showEmployees(List<Employee> Employees) {
 
     }
 

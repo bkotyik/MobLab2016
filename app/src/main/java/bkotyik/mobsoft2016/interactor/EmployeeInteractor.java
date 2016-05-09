@@ -6,25 +6,25 @@ import java.util.List;
 import javax.inject.Inject;
 
 import bkotyik.mobsoft2016.IndoorMapApplication;
-import bkotyik.mobsoft2016.model.EmployeeModel;
-import bkotyik.mobsoft2016.model.FloorModel;
+import bkotyik.mobsoft2016.model.Employee;
+import bkotyik.mobsoft2016.model.Floor;
 
 public class EmployeeInteractor {
     @Inject
-    EmployeeModel model;
+    Employee model;
 
-    private List<EmployeeModel> employees;
+    private List<Employee> employees;
 
     public EmployeeInteractor() {
         IndoorMapApplication.injector.inject(this);
-        this.employees = new ArrayList<EmployeeModel>();
+        this.employees = new ArrayList<Employee>();
     }
 
-    public List<EmployeeModel> getEmployees() {
+    public List<Employee> getEmployees() {
         return employees;
     }
 
-    public EmployeeModel getEmployee(int i) {
+    public Employee getEmployee(int i) {
         return this.employees.get(i);
     }
 }

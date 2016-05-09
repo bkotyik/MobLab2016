@@ -9,8 +9,8 @@ import javax.inject.Inject;
 
 import bkotyik.mobsoft2016.IndoorMapApplication;
 import bkotyik.mobsoft2016.R;
-import bkotyik.mobsoft2016.model.EmployeeModel;
-import bkotyik.mobsoft2016.model.FloorModel;
+import bkotyik.mobsoft2016.model.Employee;
+import bkotyik.mobsoft2016.model.Floor;
 import bkotyik.mobsoft2016.presenter.FloorDetailsPresenter;
 import bkotyik.mobsoft2016.presenter.MainPresenter;
 
@@ -38,12 +38,12 @@ public class FloorDetailsActivity extends Activity implements FloorDetailsView {
     }
 
     @Override
-    public void showFloorDetails(FloorModel m) {
+    public void showFloorDetails(Floor m) {
 
     }
 
     @Override
-    public void showEmployeeList(List<EmployeeModel> employeeModelList) {
+    public void showEmployeeList(List<Employee> EmployeeList) {
 
     }
 }

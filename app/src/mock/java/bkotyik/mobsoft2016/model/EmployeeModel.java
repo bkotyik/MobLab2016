@@ -1,13 +1,13 @@
 package bkotyik.mobsoft2016.model;
 
-public class EmployeeModel {
+public class Employee {
 
     private Long id;
     private String name;
     private String roomNumber;
     private int floorId;
 
-    public EmployeeModel() {
+    public Employee() {
 
     }
     

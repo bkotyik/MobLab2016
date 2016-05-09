@@ -2,10 +2,10 @@ package bkotyik.mobsoft2016.view;
 
 import java.util.List;
 
-import bkotyik.mobsoft2016.model.EmployeeModel;
-import bkotyik.mobsoft2016.model.FloorModel;
+import bkotyik.mobsoft2016.model.Employee;
+import bkotyik.mobsoft2016.model.Floor;
 
 public interface FloorDetailsView {
-    void showFloorDetails(FloorModel m);
-    void showEmployeeList(List<EmployeeModel> employeeModelList);
+    void showFloorDetails(Floor m);
+    void showEmployeeList(List<Employee> EmployeeList);
 }

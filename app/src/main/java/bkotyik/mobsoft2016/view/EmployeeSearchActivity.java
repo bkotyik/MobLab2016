@@ -8,7 +8,7 @@ import java.util.List;
 import javax.inject.Inject;
 import bkotyik.mobsoft2016.IndoorMapApplication;
 import bkotyik.mobsoft2016.R;
-import bkotyik.mobsoft2016.model.EmployeeModel;
+import bkotyik.mobsoft2016.model.Employee;
 import bkotyik.mobsoft2016.presenter.EmployeeSearchPresenter;
 
 public class EmployeeSearchActivity extends Activity implements EmployeeSearchView {
@@ -36,7 +36,7 @@ public class EmployeeSearchActivity extends Activity implements EmployeeSearchVi
     }
 
     @Override
-    public void showSearchResult(List<EmployeeModel> employeeModelList) {
+    public void showSearchResult(List<Employee> EmployeeList) {
 
     }
 }

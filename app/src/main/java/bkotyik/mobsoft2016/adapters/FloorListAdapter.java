@@ -11,13 +11,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bkotyik.mobsoft2016.R;
-import bkotyik.mobsoft2016.model.FloorModel;
+import bkotyik.mobsoft2016.model.Floor;
 import bkotyik.mobsoft2016.view.MainActivity;
 
 public class FloorListAdapter extends BaseAdapter {
 
     private LayoutInflater mInflater = null;
-    private List<FloorModel> floorList;
+    private List<Floor> floorList;
     private Context mContext;
 
     private final class ViewHolder {
@@ -27,7 +27,7 @@ public class FloorListAdapter extends BaseAdapter {
     private ViewHolder mHolder = null;
 
 
-    public FloorListAdapter(Context context, List<FloorModel> floors) {
+    public FloorListAdapter(Context context, List<Floor> floors) {
         this.floorList = floors;
         mContext = context;
         mInflater = (LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);

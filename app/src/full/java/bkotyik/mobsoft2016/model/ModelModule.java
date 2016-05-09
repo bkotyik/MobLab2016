@@ -6,11 +6,11 @@ import dagger.Provides;
 @Module
 public class ModelModule {
     @Provides
-    public FloorModel getBuildingModel() {
-        return new FloorModel();
+    public Floor getBuildingModel() {
+        return new Floor();
     }
     @Provides
-    public EmployeeModel getEmployeeModel() {
-        return new EmployeeModel();
+    public Employee getEmployee() {
+        return new Employee();
     }
 }

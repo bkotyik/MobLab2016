@@ -4,7 +4,7 @@ import javax.inject.Inject;
 
 import bkotyik.mobsoft2016.interactor.EmployeeInteractor;
 import bkotyik.mobsoft2016.interactor.FloorInteractor;
-import bkotyik.mobsoft2016.model.FloorModel;
+import bkotyik.mobsoft2016.model.Floor;
 import bkotyik.mobsoft2016.view.FloorEditorView;
 
 public class FloorEditorPresenter extends Presenter<FloorEditorView> {
@@ -22,7 +22,7 @@ public class FloorEditorPresenter extends Presenter<FloorEditorView> {
 
     public void addFloor(String name, String description) {}
 
-    public void saveFloorChanges(FloorModel floor) {}
+    public void saveFloorChanges(Floor floor) {}
 
     public void loadFloor(int id) {}
 
