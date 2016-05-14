@@ -7,10 +7,15 @@ import javax.inject.Inject;
 
 import bkotyik.mobsoft2016.IndoorMapApplication;
 import bkotyik.mobsoft2016.model.Floor;
+import bkotyik.mobsoft2016.model.full.FloorDbModel;
+import bkotyik.mobsoft2016.network.FloorsApi;
 
 public class FloorInteractor {
     @Inject
-    FloorInteractor model;
+    FloorDbModel model;
+    @Inject
+    FloorsApi api;
+
     private List<Floor> floors;
 
     public FloorInteractor() {

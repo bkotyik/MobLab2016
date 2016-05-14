@@ -3,11 +3,7 @@ package bkotyik.mobsoft2016.model;
 import java.util.Objects;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
 import com.google.gson.annotations.SerializedName;
-
-
-
 
 @ApiModel(description = "")
 public class NewFloor   {
@@ -20,10 +16,8 @@ public class NewFloor   {
   
 
   
-  /**
-   * Az emelet neve, pl. Q �p�let els� szintje
-   **/
-  @ApiModelProperty(required = true, value = "Az emelet neve, pl. Q �p�let els� szintje")
+
+  @ApiModelProperty(required = true, value = "Az emelet neve, pl. Q ?p?let els? szintje")
   public String getName() {
     return name;
   }
@@ -31,11 +25,8 @@ public class NewFloor   {
     this.name = name;
   }
 
-  
-  /**
-   * Az emelet le�r�sa. pl. mely tansz�kek kaptak helyet az emeleten
-   **/
-  @ApiModelProperty(value = "Az emelet le�r�sa. pl. mely tansz�kek kaptak helyet az emeleten")
+
+  @ApiModelProperty(value = "Az emelet le?r?sa. pl. mely tansz?kek kaptak helyet az emeleten")
   public String getDescription() {
     return description;
   }

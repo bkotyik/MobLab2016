@@ -11,6 +11,16 @@ public class IndoorMapApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        injector = DaggerIndoorMapComponent.builder().viewModule(new ViewModule(this)).build();
+
+        if (BuildConfig.FLAVOR.equals("mock")) {
+            injector = DaggerMockIndoorMapComponent.builder().viewModule(new ViewModule(this)).build();
+        } else {
+            injector = DaggerIndoorMapComponent.builder().viewModule(new ViewModule(this)).build();
+        }
+    }
+
+    public void setInjector(IndoorMapComponent appComponent) {
+        injector = appComponent;
+        injector.inject(this);
     }
 }
