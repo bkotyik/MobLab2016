@@ -6,4 +6,5 @@ import bkotyik.mobsoft2016.model.Floor;
 
 public interface MainView {
     void showFloors(List<Floor> floors);
+    void showMessage(String message);
 }

@@ -22,6 +22,11 @@ public class Floor extends SugarRecord {
         this.name = _name;
     }
 
+    public Floor(String _name, String _description) {
+        this.name = _name;
+        this.description = _description;
+    }
+
 
     /**
      * Az emelet neve, pl. Q epulet elso szintje

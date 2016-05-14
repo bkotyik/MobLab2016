@@ -22,6 +22,7 @@ public class FloorListAdapter extends BaseAdapter {
 
     private final class ViewHolder {
         TextView nameTextView;
+        TextView descriptionTextView;
     }
 
     private ViewHolder mHolder = null;
@@ -60,6 +61,9 @@ public class FloorListAdapter extends BaseAdapter {
 
         mHolder.nameTextView = (TextView)convertView.findViewById(R.id.name_textView);
         mHolder.nameTextView.setText(floorList.get(position).getName());
+
+        mHolder.descriptionTextView = (TextView)convertView.findViewById(R.id.description_textView);
+        mHolder.descriptionTextView.setText(floorList.get(position).getDescription());
 
         return convertView;
     }

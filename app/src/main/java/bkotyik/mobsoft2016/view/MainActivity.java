@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.orm.SugarContext;
 
@@ -36,7 +37,6 @@ public class MainActivity extends AppCompatActivity implements MainView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         IndoorMapApplication.injector.inject(this);
-
         SugarContext.init(this);
     }
 
@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
     protected void onStart() {
         super.onStart();
         mainPresenter.attachView(this);
+        mainPresenter.activate();
     }
 
     @Override
@@ -54,8 +55,13 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     @Override
     public void showFloors(List<Floor> floors) {
-        //floorListView = (ListView)findViewById(R.id.floorListView);
-        //listAdapter = new FloorListAdapter(getApplicationContext(),floors);
-        //floorListView.setAdapter( listAdapter );
+        floorListView = (ListView)findViewById(R.id.floorListView);
+        listAdapter = new FloorListAdapter(getApplicationContext(),floors);
+        floorListView.setAdapter( listAdapter );
+    }
+
+    @Override
+    public void showMessage(String message) {
+        Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG);
     }
 }

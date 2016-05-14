@@ -13,11 +13,16 @@ public class MainPresenter extends Presenter<MainView> {
     public FloorInteractor interactor;
 
     public MainPresenter() {
-
+        IndoorMapApplication.injector.inject(this);
     }
 
     public void activate() {
-        view.showFloors(interactor.getFloorsFromDb());
+        try {
+            view.showFloors(interactor.getFloorsFromNetwork());
+        } catch (Exception e) {
+            view.showFloors(interactor.getFloorsFromDb());
+            view.showMessage(e.getMessage());
+        }
     }
     public void selectFloor(Floor Floor) {}
     public void addFloor() {}
