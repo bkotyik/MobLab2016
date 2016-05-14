@@ -23,6 +23,10 @@ public class NewEmployee   {
   
   @SerializedName("floorId")
   private Integer floorId = null;
+
+  public NewEmployee(String _name) {
+    this.name = _name;
+  }
   
 
   

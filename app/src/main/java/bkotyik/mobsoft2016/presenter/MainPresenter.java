@@ -17,7 +17,7 @@ public class MainPresenter extends Presenter<MainView> {
     }
 
     public void activate() {
-        view.showFloors(interactor.getFloors());
+        view.showFloors(interactor.getFloorsFromDb());
     }
     public void selectFloor(Floor Floor) {}
     public void addFloor() {}

@@ -30,7 +30,7 @@ public class FloorInteractor {
         model.insert(toAdd);
     }
 
-    public void addEmployeeToNetwork(NewFloor toAdd) throws Exception {
+    public void addFloorToNetwork(NewFloor toAdd) throws Exception {
         Response response = null;
 
         Call call = api.floorsPost(toAdd);
@@ -44,11 +44,11 @@ public class FloorInteractor {
         }
     }
 
-    public List<Floor> getEmployeesFromDb() {
+    public List<Floor> getFloorsFromDb() {
         return model.fetch();
     }
 
-    public List<Floor> getEmployeesFromNetwork() throws Exception {
+    public List<Floor> getFloorsFromNetwork() throws Exception {
         Response<List<Floor>> response = null;
 
         Call<List<Floor>> call = api.floorsGet();
