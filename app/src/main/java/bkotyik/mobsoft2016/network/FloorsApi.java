@@ -62,7 +62,7 @@ public interface FloorsApi {
    */
   
   @GET("floors/{id}")
-  Call<Void> floorsIdGet(
+  Call<Floor> floorsIdGet(
     @Path("id") BigDecimal id
   );
 

@@ -17,6 +17,14 @@ public class FloorDetailsPresenter extends Presenter<FloorDetailsView> {
 
     }
 
+    public void loadFloor(int _id) {
+        try {
+            view.showFloorDetails(floorInteractor.getFloorFromNetwork(_id));
+        } catch (Exception e) {
+            view.showFloorDetails(floorInteractor.getFloorFromDb(_id));
+            view.showMessage(e.getMessage());
+        }
+    }
     public void deleteFloor() {}
     public void editFloor() {}
 }

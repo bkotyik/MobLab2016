@@ -41,7 +41,7 @@ public class FloorListAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return floorList.get(position).getName();
+        return floorList.get(position);
     }
 
     @Override

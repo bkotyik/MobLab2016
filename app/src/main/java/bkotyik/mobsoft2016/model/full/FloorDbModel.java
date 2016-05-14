@@ -12,4 +12,8 @@ public class FloorDbModel  {
     public void insert(Floor toInsert) {
         toInsert.save();
     }
+
+    public Floor fetchById(int id) {
+        return Floor.findById(Floor.class, id);
+    }
 }

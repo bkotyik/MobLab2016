@@ -1,11 +1,13 @@
 package bkotyik.mobsoft2016.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -58,10 +60,22 @@ public class MainActivity extends AppCompatActivity implements MainView {
         floorListView = (ListView)findViewById(R.id.floorListView);
         listAdapter = new FloorListAdapter(getApplicationContext(),floors);
         floorListView.setAdapter( listAdapter );
+
+        floorListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Floor floor = (Floor)listAdapter.getItem(position);
+                if (floor != null) {
+                    Intent intent = new Intent(getApplicationContext(), FloorDetailsActivity.class);
+                    intent.putExtra("FLOOR_ID", floor.getId());
+                    startActivity(intent);
+                }
+            }
+        });
     }
 
     @Override
     public void showMessage(String message) {
-        Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG);
+        Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG).show();
     }
 }

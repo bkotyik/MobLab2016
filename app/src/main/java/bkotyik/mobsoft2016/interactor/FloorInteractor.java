@@ -1,5 +1,6 @@
 package bkotyik.mobsoft2016.interactor;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,4 +65,22 @@ public class FloorInteractor {
         return response.body();
     }
 
+    public Floor getFloorFromNetwork(int id) throws Exception {
+        Response<Floor> response = null;
+        Call<Floor> call = api.floorsIdGet(BigDecimal.valueOf(id));
+        try {
+            response = call.execute();
+        } catch (Exception e) {
+            throw new Exception("Network error on execute with get!");
+        }
+        if (response.code() != 200) {
+            throw new Exception("Network error with get!");
+        }
+
+        return response.body();
+    }
+
+    public Floor getFloorFromDb(int id) {
+        return model.fetchById(id);
+    }
 }
