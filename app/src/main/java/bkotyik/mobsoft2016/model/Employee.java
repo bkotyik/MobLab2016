@@ -5,13 +5,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import com.google.gson.annotations.SerializedName;
+import com.orm.SugarRecord;
 
-
-@ApiModel(description = "")
-public class Employee   {
-
-    @SerializedName("id")
-    private Integer id = null;
+public class Employee extends SugarRecord {
 
     @SerializedName("name")
     private String name = null;
@@ -28,18 +24,6 @@ public class Employee   {
 
     public Employee() {
 
-    }
-
-
-    /**
-     * A munkatars egyedi azonositoja
-     **/
-    @ApiModelProperty(required = true, value = "A munkatars egyedi azonositoja")
-    public Integer getId() {
-        return id;
-    }
-    public void setId(Integer id) {
-        this.id = id;
     }
 
 
@@ -89,7 +73,7 @@ public class Employee   {
             return false;
         }
         Employee employee = (Employee) o;
-        return Objects.equals(id, employee.id) &&
+        return Objects.equals(this.getId(), employee.getId()) &&
                 Objects.equals(name, employee.name) &&
                 Objects.equals(roomNumber, employee.roomNumber) &&
                 Objects.equals(floorId, employee.floorId);
@@ -97,7 +81,7 @@ public class Employee   {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, roomNumber, floorId);
+        return Objects.hash(this.getId(), name, roomNumber, floorId);
     }
 
     @Override
@@ -105,7 +89,7 @@ public class Employee   {
         StringBuilder sb = new StringBuilder();
         sb.append("class Employee {\n");
 
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    id: ").append(toIndentedString(this.getId())).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    roomNumber: ").append(toIndentedString(roomNumber)).append("\n");
         sb.append("    floorId: ").append(toIndentedString(floorId)).append("\n");

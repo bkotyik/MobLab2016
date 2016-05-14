@@ -1,7 +1,18 @@
 package bkotyik.mobsoft2016.model.full;
 
-/**
- * Created by balin on 2016. 05. 14..
- */
+import java.util.List;
+
+import bkotyik.mobsoft2016.model.Employee;
+
 public class EmployeeDbModel {
+
+    public List<Employee> fetch() {
+        List<Employee> values = Employee.listAll(Employee.class);
+        return values;
+    }
+
+    public void insert(Employee toInsert) {
+        toInsert.save();
+    }
+
 }

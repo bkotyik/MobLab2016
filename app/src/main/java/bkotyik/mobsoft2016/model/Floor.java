@@ -1,6 +1,7 @@
 package bkotyik.mobsoft2016.model;
 
 import com.google.gson.annotations.SerializedName;
+import com.orm.SugarRecord;
 import com.orm.dsl.Table;
 
 import java.util.Objects;
@@ -9,30 +10,13 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 @Table
-@ApiModel(description = "")
-public class Floor   {
-
-    @SerializedName("id")
-    private Integer id = null;
+public class Floor extends SugarRecord {
 
     @SerializedName("name")
     private String name = null;
 
     @SerializedName("description")
     private String description = null;
-
-
-
-    /**
-     * Az emelet egyedi azonositoja
-     **/
-    @ApiModelProperty(required = true, value = "Az emelet egyedi azonositoja")
-    public Integer getId() {
-        return id;
-    }
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
 
     /**
@@ -69,14 +53,14 @@ public class Floor   {
             return false;
         }
         Floor floor = (Floor) o;
-        return Objects.equals(id, floor.id) &&
+        return Objects.equals(this.getId(), floor.getId()) &&
                 Objects.equals(name, floor.name) &&
                 Objects.equals(description, floor.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description);
+        return Objects.hash(this.getId(), name, description);
     }
 
     @Override
@@ -84,7 +68,7 @@ public class Floor   {
         StringBuilder sb = new StringBuilder();
         sb.append("class Floor {\n");
 
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    id: ").append(toIndentedString(this.getId())).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("}");
