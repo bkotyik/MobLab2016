@@ -6,10 +6,11 @@ import javax.inject.Inject;
 import bkotyik.mobsoft2016.IndoorMapApplication;
 import bkotyik.mobsoft2016.model.Employee;
 import bkotyik.mobsoft2016.model.Floor;
+import bkotyik.mobsoft2016.model.NewEmployee;
 import bkotyik.mobsoft2016.model.full.EmployeeDbModel;
 import bkotyik.mobsoft2016.network.EmployeesApi;
-import okhttp3.Call;
-import okhttp3.Response;
+import retrofit2.Call;
+import retrofit2.Response;
 
 public class EmployeeInteractor {
     @Inject
@@ -24,14 +25,14 @@ public class EmployeeInteractor {
     }
 
 
-    public void addPersonToDb(Employee toAdd) {
-        model.inserEmployee(toAdd);
+    public void addEmployeeToDb(Employee toAdd) {
+        model.insert(toAdd);
     }
 
-    public void addPersonToNetwork(Employee toAdd) throws Exception {
+    public void addEmployeeToNetwork(NewEmployee toAdd) throws Exception {
         Response response = null;
 
-        Call call = api.peopleAddDataGet(toAdd.getName());
+        Call call = api.employeesPost(toAdd);
         try {
             response = call.execute();
         } catch (Exception e) {
@@ -42,14 +43,14 @@ public class EmployeeInteractor {
         }
     }
 
-    public List<Employee> getPeopleFromDb() {
-        return model.fetchPeople();
+    public List<Employee> getEmployeesFromDb() {
+        return model.fetch();
     }
 
-    public List<Employee> getPeopleFromNetwork() throws Exception {
+    public List<Employee> getEmployeesFromNetwork() throws Exception {
         Response<List<Employee>> response = null;
 
-        Call<List<Employee>> call = api.peopleGet();
+        Call<List<Employee>> call = api.employeesGet();
         try {
             response = call.execute();
         } catch (Exception e) {
