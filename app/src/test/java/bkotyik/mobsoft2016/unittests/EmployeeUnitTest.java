@@ -6,11 +6,13 @@ import org.junit.runner.RunWith;
 import org.robolectric.annotation.Config;
 
 import javax.inject.Inject;
-
 import bkotyik.mobsoft2016.BuildConfig;
 import bkotyik.mobsoft2016.interactor.EmployeeInteractor;
 import bkotyik.mobsoft2016.model.Employee;
 import bkotyik.mobsoft2016.network.mock.EmployeeMock;
+
+import static bkotyik.mobsoft2016.TestHelper.setTestInjector;
+import static org.junit.Assert.*;
 
 @RunWith(bkotyik.mobsoft2016.RobolectricDaggerTestRunner.class)
 @Config(constants = BuildConfig.class, sdk = 21)
