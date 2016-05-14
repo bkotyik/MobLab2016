@@ -18,6 +18,10 @@ public class Floor extends SugarRecord {
     @SerializedName("description")
     private String description = null;
 
+    public Floor(String _name) {
+        this.name = _name;
+    }
+
 
     /**
      * Az emelet neve, pl. Q epulet elso szintje
