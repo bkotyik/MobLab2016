@@ -51,7 +51,7 @@ public class EmployeeUnitTest {
     public void mockAddTest() throws Exception {
         EmployeeMock.resetList();
         if (BuildConfig.FLAVOR == "mock") {
-            NewEmployee n = new NewEmployee("Dr. Nagyon Dolgozo Arpad");
+            NewEmployee n = new NewEmployee("Mock Employee");
 
             interactor.addEmployeeToNetwork(n);
 

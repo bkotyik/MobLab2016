@@ -23,4 +23,13 @@ public class MockFloorDbModel extends FloorDbModel {
     public void insert(Floor toInsert) {
         values.add(toInsert);
     }
+
+    public Floor fetchById(int id) {
+        return values.get(id);
+    }
+
+    public void removeById(Long id) {
+        values.remove(id);
+    }
+
 }

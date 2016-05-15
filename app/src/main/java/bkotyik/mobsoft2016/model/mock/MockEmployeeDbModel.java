@@ -17,6 +17,7 @@ public class MockEmployeeDbModel extends EmployeeDbModel {
 
     @Override
     public List<Employee> fetch() {
+
         return values;
     }
 
@@ -25,4 +26,11 @@ public class MockEmployeeDbModel extends EmployeeDbModel {
         values.add(toInsert);
     }
 
+
+    public List<Employee> fetchByFloorId(int id) {
+        return values;
+    }
+
 }
+
+

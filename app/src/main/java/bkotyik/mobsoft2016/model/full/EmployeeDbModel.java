@@ -15,4 +15,7 @@ public class EmployeeDbModel {
         toInsert.save();
     }
 
+    public List<Employee> fetchByFloorId(int id) {
+        return Employee.find(Employee.class,"floorId = ?", Integer.toString(id));
+    }
 }

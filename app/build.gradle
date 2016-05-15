@@ -20,11 +20,11 @@ android {
     }
     productFlavors {
         mock {
-            applicationId = "bkotyik.mobsoft.mock"
+            applicationId = "bkotyik.mobsoft2016.mock"
         }
 
         full {
-            applicationId = "bkotyik.mobsoft.full"
+            applicationId = "bkotyik.mobsoft2016.full"
         }
     }
 }

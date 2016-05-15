@@ -62,4 +62,12 @@ public class EmployeeInteractor {
 
         return response.body();
     }
+
+    public List<Employee> getEmployeesByFloorIdFromDb(int id) {
+        return model.fetchByFloorId(id);
+    }
+
+    public List<Employee> getEmployeesByFloorIdFromNetwork(int id) {
+        return null;
+    }
 }

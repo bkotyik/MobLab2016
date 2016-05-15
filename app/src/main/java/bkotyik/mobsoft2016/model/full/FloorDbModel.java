@@ -16,4 +16,11 @@ public class FloorDbModel  {
     public Floor fetchById(int id) {
         return Floor.findById(Floor.class, id);
     }
+
+    public void removeById(Long id) {
+        Floor floor = Floor.findById(Floor.class, id);
+        if (floor != null) {
+            Floor.delete(floor);
+        }
+    }
 }

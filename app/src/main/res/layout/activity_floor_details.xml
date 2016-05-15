@@ -5,40 +5,53 @@
 <TableLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TableRow>
-       <TextView
-           android:id="@+id/tvFloorName"
-           android:text="Floor Name"
-           android:layout_marginTop="10dp"
-           android:textSize="25dp"/>
-        <ImageButton
-            android:src="@drawable/ic_mode_edit_black_48dp"
-            android:layout_width="48dp"
-            android:layout_height="48dp"/>
-        <ImageButton
-            android:src="@drawable/ic_delete_black_48dp"
-            android:layout_width="48dp"
-            android:layout_height="48dp" />
+    <TableRow android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            <TextView
+                android:layout_height="wrap_content"
+                android:id="@+id/tvFloorName"
+                android:text="Floor Name"
+                android:layout_marginTop="10dp"
+                android:textSize="25dp"
+                android:layout_width="wrap_content" />
+            <ImageButton
+                android:src="@drawable/ic_mode_edit_black_48dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"/>
+            <ImageButton
+                android:id="@+id/btnDeleteFloor"
+                android:src="@drawable/ic_delete_black_48dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp" />
+        </LinearLayout>
     </TableRow>
     <TableRow
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
         <TextView
             android:id="@+id/tvFloorDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </TableRow>
-    <TableRow>
-        <TextView
-            android:text="Munkatársak"
-            android:textSize="25dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <ListView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/lvEmployees">
-
-        </ListView>
+    <TableRow android:layout_width="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content">
+            <TextView
+                android:text="Munkatársak"
+                android:textSize="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <ListView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/lvEmployees">
+            </ListView>
+        </LinearLayout>
     </TableRow>
 </TableLayout>
 </LinearLayout>

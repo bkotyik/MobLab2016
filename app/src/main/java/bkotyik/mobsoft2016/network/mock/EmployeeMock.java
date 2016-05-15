@@ -2,14 +2,18 @@ package bkotyik.mobsoft2016.network.mock;
 
 import android.net.Uri;
 
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import bkotyik.mobsoft2016.model.Employee;
+import bkotyik.mobsoft2016.model.NewEmployee;
 import bkotyik.mobsoft2016.network.GsonHelper;
 import bkotyik.mobsoft2016.network.NetworkConfig;
 import okhttp3.Headers;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class EmployeeMock {
@@ -26,7 +30,7 @@ public class EmployeeMock {
         int responseCode;
         Headers headers = request.headers();
 
-        if (uri.getPath().equals(NetworkConfig.ENDPOINT_PREFIX + "employee") && request.method().equals("GET")) {
+        if (uri.getPath().equals(NetworkConfig.ENDPOINT_PREFIX + "employees") && request.method().equals("GET")) {
             if (!isInitialised) {
                 employeesList.add(testE1);
                 employeesList.add(testE2);
@@ -34,10 +38,11 @@ public class EmployeeMock {
             }
             responseString = GsonHelper.getGson().toJson(employeesList);
             responseCode = 200;
-        } else if (uri.getPath().startsWith(NetworkConfig.ENDPOINT_PREFIX + "employees/add") && request.method().equals("GET")) {
-            int startOfData = uri.getPath().lastIndexOf('/');
-            String name = uri.getPath().substring(startOfData + 1);
-            employeesList.add(new Employee(name));
+        } else if (uri.getPath().startsWith(NetworkConfig.ENDPOINT_PREFIX + "employees") && request.method().equals("POST")) {
+
+            Employee employeeToAdd = new Employee();
+            employeeToAdd.setName("Mock Employee");
+            employeesList.add(employeeToAdd);
 
             responseString = "";
             responseCode = 200;

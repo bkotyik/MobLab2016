@@ -83,4 +83,21 @@ public class FloorInteractor {
     public Floor getFloorFromDb(int id) {
         return model.fetchById(id);
     }
+
+    public void removeFloorFromDb(Long id) {
+        model.removeById(id);
+    }
+
+    public void removeFloorFromNetwork(Long id) throws Exception {
+        Response<Void> response = null;
+        Call<Void> call = api.floorsIdDelete(BigDecimal.valueOf(id));
+        try {
+            response = call.execute();
+        } catch (Exception e) {
+            throw new Exception("Network error on execute with get!");
+        }
+        if (response.code() != 200) {
+            throw new Exception("Network error with get!");
+        }
+    }
 }
