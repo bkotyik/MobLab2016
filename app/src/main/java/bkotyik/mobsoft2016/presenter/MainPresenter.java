@@ -5,9 +5,9 @@ import javax.inject.Inject;
 import bkotyik.mobsoft2016.IndoorMapApplication;
 import bkotyik.mobsoft2016.interactor.FloorInteractor;
 import bkotyik.mobsoft2016.model.Floor;
-import bkotyik.mobsoft2016.view.MainView;
+import bkotyik.mobsoft2016.view.FloorListView;
 
-public class MainPresenter extends Presenter<MainView> {
+public class MainPresenter extends Presenter<FloorListView> {
 
     @Inject
     public FloorInteractor interactor;

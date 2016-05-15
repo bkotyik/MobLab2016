@@ -13,7 +13,7 @@ import bkotyik.mobsoft2016.presenter.MainPresenter;
 import bkotyik.mobsoft2016.view.EmployeeSearchActivity;
 import bkotyik.mobsoft2016.view.FloorDetailsActivity;
 import bkotyik.mobsoft2016.view.FloorEditorActivity;
-import bkotyik.mobsoft2016.view.MainActivity;
+import bkotyik.mobsoft2016.view.FloorListActivity;
 import bkotyik.mobsoft2016.view.ViewModule;
 import dagger.Component;
 
@@ -21,7 +21,7 @@ import dagger.Component;
 @Singleton
 @Component( modules = {ViewModule.class, InteractorModule.class, ModelModule.class, NetworkModule.class} )
 public interface IndoorMapComponent {
-    void inject(MainActivity mainActivity);
+    void inject(FloorListActivity floorListActivity);
     void inject(FloorDetailsActivity floorDetailsActivity);
     void inject(EmployeeSearchActivity employeeSearchActivity);
     void inject(FloorEditorActivity floorEditorAcitivity);

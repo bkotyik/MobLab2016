@@ -7,12 +7,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import bkotyik.mobsoft2016.R;
 import bkotyik.mobsoft2016.model.Floor;
-import bkotyik.mobsoft2016.view.MainActivity;
 
 public class FloorListAdapter extends BaseAdapter {
 
