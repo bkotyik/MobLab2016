@@ -100,4 +100,26 @@ public class FloorInteractor {
             throw new Exception("Network error with get!");
         }
     }
+
+    public void updateFloorToDb(Floor floor) {
+        model.update(floor);
+    }
+
+    public void updateFloorToNetwork(Floor floor) throws Exception {
+        Response response = null;
+
+        Call call = api.floorsIdPut(new BigDecimal(floor.getId()), new NewFloor(floor.getName(),floor.getDescription()));
+        try {
+            response = call.execute();
+        } catch (Exception e) {
+            throw new Exception("Network error on execute with post!");
+        }
+        if (response.code() != 200) {
+            throw new Exception("Network error with post!");
+        }
+    }
+
+    public void addFloorToDb(NewFloor newFloor) {
+        model.insert(new Floor(newFloor.getName(), newFloor.getDescription()));
+    }
 }

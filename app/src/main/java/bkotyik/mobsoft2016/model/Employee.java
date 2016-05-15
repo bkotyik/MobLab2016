@@ -22,6 +22,11 @@ public class Employee extends SugarRecord {
         this.name = _name;
     }
 
+    public Employee(String _name, String _roomNumber) {
+        this.name = _name;
+        this.roomNumber = _roomNumber;
+    }
+
     public Employee() {
 
     }

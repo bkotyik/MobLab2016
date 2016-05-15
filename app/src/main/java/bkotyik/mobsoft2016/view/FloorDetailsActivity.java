@@ -28,6 +28,8 @@ public class FloorDetailsActivity extends Activity implements FloorDetailsView {
     FloorDetailsPresenter presenter;
 
     ImageButton btnDeleteFloor = null;
+    ImageButton btnEditFloor = null;
+
     ListView employeeListView = null;
     EmployeeListAdapter listAdapter = null;
 
@@ -54,6 +56,17 @@ public class FloorDetailsActivity extends Activity implements FloorDetailsView {
 
             }
         });
+
+        btnEditFloor = (ImageButton)findViewById(R.id.btnEditFloor);
+        btnEditFloor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), FloorEditorActivity.class);
+                //intent.putExtra("FLOOR_ID", floor.getId());
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override

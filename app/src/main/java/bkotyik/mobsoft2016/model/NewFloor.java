@@ -13,9 +13,12 @@ public class NewFloor   {
   
   @SerializedName("description")
   private String description = null;
-  
 
-  
+  public NewFloor(String name, String description) {
+    this.name = name;
+    this.description = description;
+  }
+
 
   @ApiModelProperty(required = true, value = "Az emelet neve, pl. Q ?p?let els? szintje")
   public String getName() {

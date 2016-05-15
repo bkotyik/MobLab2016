@@ -1,6 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <TableRow>
+        <TextView
+            android:text="Új emelet hozzáadása"
+            android:textSize="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+    </TableRow>
+    <TableRow>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tvFloorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="Név"/>
 
-</LinearLayout>
+            <EditText
+                android:textColor="@android:color/black"
+                android:id="@+id/editFloorName"
+                android:layout_toRightOf="@id/tvFloorName"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_alignEnd="@+id/editFloorDescription" />
+
+            <TextView
+                android:id="@+id/tvFloorDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Leirás"
+                android:textSize="20dp"
+                android:layout_below="@+id/editFloorName"
+                android:layout_alignParentStart="true" />
+
+            <EditText
+                android:textColor="@android:color/black"
+                android:id="@+id/editFloorDescription"
+                android:layout_below="@id/editFloorName"
+                android:layout_toRightOf="@id/tvFloorDescription"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+    </TableRow>
+    <TableRow>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tvNewEmployee"
+                android:text="Új munkatárs felvétele"
+                android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tvEmployeeName"
+                android:textSize="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvNewEmployee"
+                android:text="Név"/>
+
+            <EditText
+                android:textColor="@android:color/black"
+                android:id="@+id/editEmployeeName"
+                android:layout_toRightOf="@id/tvEmployeeName"
+                android:layout_below="@id/tvNewEmployee"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true" />
+            <TextView
+                android:textSize="20dp"
+                android:id="@+id/tvEmployeeDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Szobaszám"
+                android:layout_below="@+id/editEmployeeName"
+                android:layout_alignParentStart="true" />
+
+            <EditText
+                android:textColor="@android:color/black"
+                android:id="@+id/editEmployeeRoomNumber"
+                android:layout_below="@id/tvEmployeeName"
+                android:layout_toRightOf="@id/tvEmployeeDescription"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_alignParentEnd="true" />
+            <Button
+                android:id="@+id/btnAddEmployee"
+                android:layout_below="@id/editEmployeeRoomNumber"
+                android:text="Hozzáadás"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </TableRow>
+    <TableRow>
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="140dp"
+            android:id="@+id/employeesListView" />
+    </TableRow>
+    <TableRow>
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/btnAddFloor"
+            android:text="Mentés"/>
+    </TableRow>
+</TableLayout>

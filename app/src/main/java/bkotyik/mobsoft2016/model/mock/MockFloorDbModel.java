@@ -32,4 +32,9 @@ public class MockFloorDbModel extends FloorDbModel {
         values.remove(id);
     }
 
+    public void update(Floor floor) {
+        values.remove(floor.getId());
+        values.add(new Integer(floor.getId().toString()),floor);
+    }
+
 }

@@ -23,4 +23,11 @@ public class FloorDbModel  {
             Floor.delete(floor);
         }
     }
+
+    public void update(Floor floor) {
+        Floor f = Floor.findById(Floor.class, floor.getId());
+        f.setName(floor.getName());
+        f.setDescription(floor.getDescription());
+        f.save();
+    }
 }
