@@ -9,4 +9,5 @@ public interface FloorDetailsView {
     void showFloorDetails(Floor m);
     void showEmployeeList(List<Employee> EmployeeList);
     void showMessage(String message);
+    void onFloorDeleted();
 }

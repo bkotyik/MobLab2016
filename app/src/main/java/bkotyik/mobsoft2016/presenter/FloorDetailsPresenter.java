@@ -32,12 +32,11 @@ public class FloorDetailsPresenter extends Presenter<FloorDetailsView> {
         }
 
         try {
-          view.showEmployeeList(employeeInteractor.getEmployeesByFloorIdFromNetwork(_id));
+            view.showEmployeeList(employeeInteractor.getEmployeesByFloorIdFromNetwork(_id));
         } catch(Exception e) {
             view.showEmployeeList(employeeInteractor.getEmployeesByFloorIdFromDb(_id));
             view.showMessage(e.getMessage());
         }
-
     }
     public void deleteFloor() {
         try {
@@ -48,6 +47,7 @@ public class FloorDetailsPresenter extends Presenter<FloorDetailsView> {
         } finally {
             view.showFloorDetails(currentFloor);
         }
+        view.onFloorDeleted();
     }
 
     public Floor getCurrentFloor() {

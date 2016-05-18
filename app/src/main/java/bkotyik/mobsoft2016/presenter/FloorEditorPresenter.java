@@ -1,5 +1,7 @@
 package bkotyik.mobsoft2016.presenter;
 
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +23,7 @@ public class FloorEditorPresenter extends Presenter<FloorEditorView> {
 
     Floor currentFloor;
     List<Employee> employeeList;
+    private boolean isNewFloor = false;
 
     public FloorEditorPresenter() {
         currentFloor = new Floor("");
@@ -30,7 +33,7 @@ public class FloorEditorPresenter extends Presenter<FloorEditorView> {
 
 
     public void addEmployee(String name, String roomNumber) {
-        employeeList.add(new Employee(name, roomNumber));
+        employeeList.add(new Employee(name, roomNumber, currentFloor.getId().intValue()));
         view.showEmployees(employeeList);
     }
 
@@ -57,29 +60,53 @@ public class FloorEditorPresenter extends Presenter<FloorEditorView> {
                 view.showMessage(e.getMessage());
             }
         }
+        view.onSaveChanged();
     }
 
     public void loadFloor(long id) {
-        try {
-            currentFloor = floorInteractor.getFloorFromNetwork(id);
-        } catch (Exception e) {
-            currentFloor = floorInteractor.getFloorFromDb(id);
-            view.showMessage(e.getMessage());
-        } finally {
-            view.showFloorDetails(currentFloor);
-        }
+        if (id == -1 ) {
+            isNewFloor = true;
+            employeeList = new ArrayList<>();
+            view.showEmployees(employeeList);
+        } else  {
+            isNewFloor = false;
+            try {
+                currentFloor = floorInteractor.getFloorFromNetwork(id);
+            } catch (Exception e) {
+                currentFloor = floorInteractor.getFloorFromDb(id);
+                view.showMessage(e.getMessage());
+            } finally {
+                view.showFloorDetails(currentFloor);
+            }
 
-        try {
-            employeeList = employeeInteractor.getEmployeesByFloorIdFromNetwork(id);
-        } catch (Exception e) {
-            employeeList = employeeInteractor.getEmployeesByFloorIdFromDb(id);
-            view.showMessage(e.getMessage());
-        } finally {
-          view.showEmployees(employeeList);
+            try {
+                employeeList = employeeInteractor.getEmployeesByFloorIdFromNetwork(id);
+            } catch (Exception e) {
+                employeeList = employeeInteractor.getEmployeesByFloorIdFromDb(id);
+                view.showMessage(e.getMessage());
+            } finally {
+                view.showEmployees(employeeList);
+            }
         }
     }
 
     public void removeEmployee(int id) {
         employeeList.remove(id);
+    }
+
+    public void saveEmployees(List<Employee> employees) {
+        if (currentFloor.getId() != null) {
+            try {
+                floorInteractor.setEmployeesToFloorNetwork(currentFloor.getId(), employeeList);
+            }
+            catch (Exception e) {
+                floorInteractor.setEmployeesToFloorDb(currentFloor.getId(), employeeList);
+                view.showMessage(e.getMessage());
+            }
+        }
+    }
+
+    public boolean isNewFloor() {
+        return isNewFloor;
     }
 }

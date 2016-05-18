@@ -7,6 +7,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import bkotyik.mobsoft2016.IndoorMapApplication;
+import bkotyik.mobsoft2016.model.Employee;
 import bkotyik.mobsoft2016.model.Floor;
 import bkotyik.mobsoft2016.model.NewFloor;
 import bkotyik.mobsoft2016.model.full.FloorDbModel;
@@ -121,5 +122,23 @@ public class FloorInteractor {
 
     public void addFloorToDb(NewFloor newFloor) {
         model.insert(new Floor(newFloor.getName(), newFloor.getDescription()));
+    }
+
+    public void setEmployeesToFloorNetwork(Long id, List<Employee> employeeList) throws Exception {
+        Response response = null;
+
+        Call call = api.floorsIdEmployeesPut(new BigDecimal(id), employeeList);
+        try {
+            response = call.execute();
+        } catch (Exception e) {
+            throw new Exception("Network error on execute with post!");
+        }
+        if (response.code() != 200) {
+            throw new Exception("Network error with post!");
+        }
+    }
+
+    public void setEmployeesToFloorDb(Long id, List<Employee> employeeList) {
+
     }
 }

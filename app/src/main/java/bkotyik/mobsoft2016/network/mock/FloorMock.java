@@ -2,6 +2,9 @@ package bkotyik.mobsoft2016.network.mock;
 
 import android.net.Uri;
 
+import com.google.common.reflect.TypeToken;
+
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,21 +47,12 @@ public class FloorMock {
         } else if (uri.getPath().startsWith(NetworkConfig.ENDPOINT_PREFIX + "floors") && request.method().equals("POST")) {
 
             final Buffer buffer = new Buffer();
-            RequestBody body = request.body();
-            String jsonString = null;
-
-            try {
-                body.writeTo(buffer);
-                jsonString = buffer.readUtf8();
-            }
-            catch (Exception ex) {
-
-            }
+            String jsonString = MockHelper.bodyToString(request);
 
             if (jsonString != null) {
                 NewFloor floor = GsonHelper.getGson().fromJson(jsonString, NewFloor.class);
 
-                Floor floorToAdd = new Floor(floorsList.size(), floor.getName(), floor.getDescription());
+                Floor floorToAdd = new Floor(floorsList.size() + 1, floor.getName(), floor.getDescription());
                 floorsList.add(floorToAdd);
 
                 responseString = "";
@@ -81,6 +75,24 @@ public class FloorMock {
 
                     responseString = "";
                     responseCode = 200;
+                }
+            } else if (path.size() == 3) {
+                // PUT floors/{id}/employees
+                long floorId = Long.parseLong(path.get(1));
+
+                String jsonString = MockHelper.bodyToString(request);
+                if (jsonString != null) {
+                    Type listType = new TypeToken<ArrayList<Employee>>() {
+                    }.getType();
+
+                    List<Employee> employees = GsonHelper.getGson().fromJson(jsonString, listType);
+                    EmployeeMock.setEmployeeForFloor(floorId, employees);
+                    responseString = jsonString;
+                    responseCode = 200;
+                }
+                else {
+                    responseString = "";
+                    responseCode = 500;
                 }
             }
 
@@ -105,6 +117,15 @@ public class FloorMock {
                 responseString = GsonHelper.getGson().toJson(workersOnFloor);
                 responseCode = 200;
 
+            }
+        } else if (uri.getPath().startsWith(NetworkConfig.ENDPOINT_PREFIX + "floors/") && request.method().equals("DELETE")) {
+            List<String> path = request.url().pathSegments();
+            if (path.size() == 2) {
+                // DELETE floors/{id}
+                int id = Integer.parseInt(path.get(1));
+                Floor requestedFloor = floorsList.get(id - 1);
+                floorsList.remove(id - 1);
+                EmployeeMock.setEmployeeForFloor(id, new ArrayList<Employee>());
             }
         }
         else {

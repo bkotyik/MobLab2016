@@ -3,6 +3,7 @@ package bkotyik.mobsoft2016.view;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,8 @@ public class FloorEditorActivity extends Fragment implements FloorEditorView {
     FloorEditorPresenter floorEditorPresenter;
     Button btnAddFloor = null;
     Button btnAddEmployee = null;
+    EmployeeListAdapter employeeListAdapter = null;
+    List<Employee> employees = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -50,23 +53,32 @@ public class FloorEditorActivity extends Fragment implements FloorEditorView {
                 EditText editFloorDescription = (EditText)getView().findViewById(R.id.editFloorDescription);
 
                 floorEditorPresenter.saveFloorChanges(editFloorName.getText().toString(), editFloorDescription.getText().toString());
+                floorEditorPresenter.saveEmployees(employees);
             }
         });
         btnAddEmployee = (Button)getView().findViewById(R.id.btnAddEmployee);
         btnAddEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText editEmployeeName = (EditText)getView().findViewById(R.id.editEmployeeName);
-                EditText editEmployeeRoomNumber = (EditText)getView().findViewById(R.id.editEmployeeRoomNumber);
+                if (floorEditorPresenter.isNewFloor()) {
+                    showMessage("A program jelenlegi verziójában először el kell mentenie az emeletet, csak utána adhat hozzá munkatársat!");
+                } else {
+                    EditText editEmployeeName = (EditText)getView().findViewById(R.id.editEmployeeName);
+                    EditText editEmployeeRoomNumber = (EditText)getView().findViewById(R.id.editEmployeeRoomNumber);
 
-                floorEditorPresenter.addEmployee(editEmployeeName.getText().toString(),editEmployeeRoomNumber.getText().toString());
-                editEmployeeName.setText("");
-                editEmployeeRoomNumber.setText("");
+                    floorEditorPresenter.addEmployee(editEmployeeName.getText().toString(),editEmployeeRoomNumber.getText().toString());
+                    editEmployeeName.setText("");
+                    editEmployeeRoomNumber.setText("");
+                }
             }
         });
 
         Bundle args = getArguments();
-        floorEditorPresenter.loadFloor(args.getLong("FLOOR_ID", 0));
+        if (args != null) {
+            floorEditorPresenter.loadFloor(args.getLong("FLOOR_ID", -1));
+        } else {
+            floorEditorPresenter.loadFloor(-1);
+        }
     }
 
     @Override
@@ -87,11 +99,21 @@ public class FloorEditorActivity extends Fragment implements FloorEditorView {
     @Override
     public void showEmployees(List<Employee> employeeList) {
         ListView lvEmployees = (ListView)getView().findViewById(R.id.employeesListView);
-        lvEmployees.setAdapter(new EmployeeListAdapter(getContext(),employeeList));
+        employeeListAdapter = new EmployeeListAdapter(getContext(),employeeList);
+        employees = employeeList;
+        lvEmployees.setAdapter(employeeListAdapter);
     }
 
     @Override
     public void showMessage(String msg) {
         Toast.makeText(getContext(),msg,Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onSaveChanged() {
+        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.flContent, new FloorListActivity());
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }

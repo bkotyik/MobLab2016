@@ -10,4 +10,5 @@ public interface FloorEditorView {
     void showFloorDetails(Floor Floor);
     void showEmployees(List<Employee> Employees);
     void showMessage(String msg);
+    void onSaveChanged();
 }

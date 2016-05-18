@@ -38,6 +38,15 @@ public class EmployeeMock {
         return employeesList;
     }
 
+    public static void setEmployeeForFloor(long floorId, List<Employee> employees) {
+        for (int i = 0; i < employeesList.size(); i++) {
+            if (employeesList.get(i).getFloorId() == floorId) {
+                employeesList.remove(i);
+            }
+        }
+        employeesList.addAll(employees);
+    }
+
     public static Response process(Request request) {
         Uri uri = Uri.parse(request.url().toString());
 

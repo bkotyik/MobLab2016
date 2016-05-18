@@ -2,6 +2,7 @@ package bkotyik.mobsoft2016.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -47,6 +48,17 @@ public class FloorListActivity extends android.support.v4.app.Fragment implement
         super.onStart();
         mainPresenter.attachView(this);
         mainPresenter.activate();
+
+        FloatingActionButton fab = (FloatingActionButton)getView().findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.flContent, new FloorEditorActivity());
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
     }
 
     @Override

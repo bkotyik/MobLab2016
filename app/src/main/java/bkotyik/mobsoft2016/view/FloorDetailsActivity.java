@@ -124,4 +124,12 @@ public class FloorDetailsActivity extends Fragment implements FloorDetailsView {
     public void showMessage(String message) {
         Toast.makeText(getContext(),message,Toast.LENGTH_LONG).show();
     }
+
+    @Override
+    public void onFloorDeleted() {
+        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.flContent, new FloorListActivity());
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
 }

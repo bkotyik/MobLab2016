@@ -106,5 +106,12 @@ public interface FloorsApi {
     @Path("id") BigDecimal id
   );
 
+  @PUT("floors/{id}/employees")
+  Call<Void> floorsIdEmployeesPut(
+          @Path("id") BigDecimal id,
+          @Body List<Employee> employees
+  );
+
+
   
 }
