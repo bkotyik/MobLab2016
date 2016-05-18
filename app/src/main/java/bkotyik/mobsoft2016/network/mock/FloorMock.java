@@ -35,13 +35,14 @@ public class FloorMock {
         int responseCode = 400;
         Headers headers = request.headers();
 
+        if (!isInitialised) {
+            floorsList.add(testF1);
+            floorsList.add(testF2);
+            floorsList.add(testF3);
+            isInitialised = true;
+        }
+
         if (uri.getPath().equals(NetworkConfig.ENDPOINT_PREFIX + "floors") && request.method().equals("GET")) {
-            if (!isInitialised) {
-                floorsList.add(testF1);
-                floorsList.add(testF2);
-                floorsList.add(testF3);
-                isInitialised = true;
-            }
             responseString = GsonHelper.getGson().toJson(floorsList);
             responseCode = 200;
         } else if (uri.getPath().startsWith(NetworkConfig.ENDPOINT_PREFIX + "floors") && request.method().equals("POST")) {
@@ -126,6 +127,8 @@ public class FloorMock {
                 Floor requestedFloor = floorsList.get(id - 1);
                 floorsList.remove(id - 1);
                 EmployeeMock.setEmployeeForFloor(id, new ArrayList<Employee>());
+                responseCode = 200;
+                responseString ="";
             }
         }
         else {
@@ -139,5 +142,6 @@ public class FloorMock {
     public static void resetList() {
         floorsList.clear();
         isInitialised = false;
+
     }
 }

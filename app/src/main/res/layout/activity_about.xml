@@ -15,7 +15,7 @@
     <TableRow>
         <TextView
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:textSize="15dp"
             android:text="Ezt az alkalmazást Bálint Márton készítette a BME Mobilszoftver laboratórium tárgy keretein belül"></TextView>
     </TableRow>

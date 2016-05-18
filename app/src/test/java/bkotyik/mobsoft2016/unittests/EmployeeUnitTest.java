@@ -72,4 +72,14 @@ public class EmployeeUnitTest {
         }
     }
 
+    @Test
+    public void mockGetByFloorIdTest() throws Exception {
+        EmployeeMock.resetList();
+        if (BuildConfig.FLAVOR == "mock") {
+
+            List<Employee> p = interactor.getEmployeesByFloorIdFromNetwork(1);
+            assertEquals(p.get(0).getName(), EmployeeMock.testE1.getName());
+        }
+    }
+
 }
