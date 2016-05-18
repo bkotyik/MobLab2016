@@ -55,7 +55,6 @@ public class FloorDetailsActivity extends Fragment implements FloorDetailsView {
         btnDeleteFloor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 new AlertDialog.Builder(v.getContext())
                         .setMessage("Tényleg törlöd az emeletet?")
                         .setCancelable(false)
@@ -66,8 +65,6 @@ public class FloorDetailsActivity extends Fragment implements FloorDetailsView {
                         })
                         .setNegativeButton("No", null)
                         .show();
-
-
             }
         });
 

@@ -66,4 +66,9 @@ public class EmployeeListAdapter extends BaseAdapter {
 
         return convertView;
     }
+
+    public void remove(int position) {
+        this.employeeList.remove(position);
+        this.notifyDataSetChanged();
+    }
 }
