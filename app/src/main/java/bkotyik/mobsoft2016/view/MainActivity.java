@@ -66,11 +66,6 @@ public class MainActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -85,7 +80,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_employees) {
             navigateToFragment(EmployeeSearchActivity.class);
         } else if (id == R.id.nav_about) {
-
+            navigateToFragment(AboutActivity.class);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

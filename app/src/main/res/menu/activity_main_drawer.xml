@@ -4,11 +4,11 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_floors"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_location_city_black_48dp"
             android:title="Emeletek" />
         <item
             android:id="@+id/nav_employees"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_person_pin_black_48dp"
             android:title="Munkatársak" />
 
     </group>
@@ -17,7 +17,7 @@
         <menu>
             <item
                 android:id="@+id/nav_about"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/ic_contact_mail_black_48dp"
                 android:title="Névjegy" />
         </menu>
     </item>
