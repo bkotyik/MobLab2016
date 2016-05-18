@@ -52,7 +52,7 @@ public class EmployeeListAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView == null) {
             mHolder = new ViewHolder();
-            convertView = mInflater.inflate(R.layout.floor_row, null);
+            convertView = mInflater.inflate(R.layout.employee_row, null);
             convertView.setTag(mHolder);
         } else {
             mHolder = (ViewHolder)convertView.getTag();
@@ -61,7 +61,7 @@ public class EmployeeListAdapter extends BaseAdapter {
         mHolder.nameTextView = (TextView)convertView.findViewById(R.id.name_textView);
         mHolder.nameTextView.setText(employeeList.get(position).getName());
 
-        mHolder.roomNumberTextView = (TextView)convertView.findViewById(R.id.description_textView);
+        mHolder.roomNumberTextView = (TextView)convertView.findViewById(R.id.roomNumber_textView);
         mHolder.roomNumberTextView.setText(employeeList.get(position).getRoomNumber());
 
         return convertView;

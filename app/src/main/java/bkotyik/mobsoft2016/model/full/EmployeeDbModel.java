@@ -18,4 +18,8 @@ public class EmployeeDbModel {
     public List<Employee> fetchByFloorId(int id) {
         return Employee.find(Employee.class,"floorId = ?", Integer.toString(id));
     }
+
+    public List<Employee> fetchByEmployeeName(String name) {
+        return Employee.find(Employee.class,"name = ?", name);
+    }
 }

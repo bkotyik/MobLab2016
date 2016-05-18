@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_floors) {
             navigateToFragment(FloorListActivity.class);
         } else if (id == R.id.nav_employees) {
-
+            navigateToFragment(EmployeeSearchActivity.class);
         } else if (id == R.id.nav_about) {
 
         }

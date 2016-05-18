@@ -1,5 +1,6 @@
 package bkotyik.mobsoft2016.interactor;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -9,6 +10,7 @@ import bkotyik.mobsoft2016.model.Floor;
 import bkotyik.mobsoft2016.model.NewEmployee;
 import bkotyik.mobsoft2016.model.full.EmployeeDbModel;
 import bkotyik.mobsoft2016.network.EmployeesApi;
+import bkotyik.mobsoft2016.network.FloorsApi;
 import retrofit2.Call;
 import retrofit2.Response;
 
@@ -17,6 +19,9 @@ public class EmployeeInteractor {
     EmployeeDbModel model;
     @Inject
     EmployeesApi api;
+    @Inject
+    FloorsApi fapi;
+
 
     private List<Employee> employees;
 
@@ -50,7 +55,7 @@ public class EmployeeInteractor {
     public List<Employee> getEmployeesFromNetwork() throws Exception {
         Response<List<Employee>> response = null;
 
-        Call<List<Employee>> call = api.employeesGet();
+        Call<List<Employee>> call = api.employeesGet(null);
         try {
             response = call.execute();
         } catch (Exception e) {
@@ -67,7 +72,39 @@ public class EmployeeInteractor {
         return model.fetchByFloorId(id);
     }
 
-    public List<Employee> getEmployeesByFloorIdFromNetwork(int id) {
-        return null;
+    public List<Employee> getEmployeesByFloorIdFromNetwork(int id) throws Exception {
+        Response<List<Employee>> response = null;
+
+        Call<List<Employee>> call = fapi.floorsIdEmployeesGet(new BigDecimal(id));
+        try {
+            response = call.execute();
+        } catch (Exception e) {
+            throw new Exception("Network error on execute with get!");
+        }
+        if (response.code() != 200) {
+            throw new Exception("Network error with get!");
+        }
+
+        return response.body();
+    }
+
+    public List<Employee> getEmployeesByNameFromNetwork(String name) throws Exception {
+        Response<List<Employee>> response = null;
+
+        Call<List<Employee>> call = api.employeesGet(name);
+        try {
+            response = call.execute();
+        } catch (Exception e) {
+            throw new Exception("Network error on execute with get!");
+        }
+        if (response.code() != 200) {
+            throw new Exception("Network error with get!");
+        }
+
+        return response.body();
+    }
+
+    public List<Employee> getEmployeesByNameFromDb(String name) {
+        return model.fetchByEmployeeName(name);
     }
 }

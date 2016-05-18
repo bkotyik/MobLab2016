@@ -7,6 +7,7 @@ import bkotyik.mobsoft2016.interactor.FloorInteractor;
 import bkotyik.mobsoft2016.interactor.InteractorModule;
 import bkotyik.mobsoft2016.model.full.ModelModule;
 import bkotyik.mobsoft2016.network.prod.NetworkModule;
+import bkotyik.mobsoft2016.presenter.EmployeeSearchPresenter;
 import bkotyik.mobsoft2016.presenter.FloorDetailsPresenter;
 import bkotyik.mobsoft2016.presenter.FloorEditorPresenter;
 import bkotyik.mobsoft2016.presenter.MainPresenter;
@@ -31,4 +32,5 @@ public interface IndoorMapComponent {
     void inject(FloorDetailsPresenter floorDetailsPresenter);
     void inject(FloorEditorPresenter floorEditorPresenter);
     void inject(IndoorMapApplication indoor);
+    void inject(EmployeeSearchPresenter indoor);
 }

@@ -24,7 +24,7 @@ public interface EmployeesApi {
    */
   
   @GET("employees")
-  Call<List<Employee>> employeesGet();
+  Call<List<Employee>> employeesGet(@Query("name") String name);
     
 
   

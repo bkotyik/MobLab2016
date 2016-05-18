@@ -31,6 +31,10 @@ public class MockEmployeeDbModel extends EmployeeDbModel {
         return values;
     }
 
+    public List<Employee> fetchByEmployeeName(String name) {
+        return values;
+    }
+
 }
 
 
