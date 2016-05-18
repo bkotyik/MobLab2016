@@ -33,6 +33,9 @@ public class Floor extends SugarRecord {
         this.description = _description;
     }
 
+    public Floor() {
+
+    }
 
     /**
      * Az emelet neve, pl. Q epulet elso szintje

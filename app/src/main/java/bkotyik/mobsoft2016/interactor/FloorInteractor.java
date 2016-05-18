@@ -121,7 +121,8 @@ public class FloorInteractor {
     }
 
     public void addFloorToDb(NewFloor newFloor) {
-        model.insert(new Floor(newFloor.getName(), newFloor.getDescription()));
+        Floor f = new Floor(newFloor.getName(), newFloor.getDescription());
+        model.insert(f);
     }
 
     public void setEmployeesToFloorNetwork(Long id, List<Employee> employeeList) throws Exception {
