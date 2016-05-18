@@ -10,8 +10,9 @@ public class MockFloorDbModel extends FloorDbModel {
     LinkedList<Floor> values = new LinkedList<>();
 
     public MockFloorDbModel() {
-        values.add(new Floor("F1","Description of F1"));
-        values.add(new Floor("F2", "Description of F2"));
+        values.add(new Floor(1, "Floor 1","Description of Floor 1"));
+        values.add(new Floor(2, "Floor 2", "Description of Floor 2"));
+        values.add(new Floor(2, "Floor 3", "Description of Floor 3"));
     }
 
     @Override

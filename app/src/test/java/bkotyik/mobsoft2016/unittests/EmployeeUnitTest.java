@@ -47,6 +47,15 @@ public class EmployeeUnitTest {
         }
     }
 
+    public void mockGetByNameTest() throws Exception {
+        EmployeeMock.resetList();
+        if (BuildConfig.FLAVOR == "mock") {
+            List<Employee> p = interactor.getEmployeesByNameFromNetwork("1");
+            assertEquals(p.get(0).getName(), EmployeeMock.testE1.getName());
+            assertEquals(p.size(), 1);
+        }
+    }
+
     @Test
     public void mockAddTest() throws Exception {
         EmployeeMock.resetList();
@@ -62,4 +71,5 @@ public class EmployeeUnitTest {
 
         }
     }
+
 }

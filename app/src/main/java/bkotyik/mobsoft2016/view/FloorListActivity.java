@@ -66,14 +66,9 @@ public class FloorListActivity extends android.support.v4.app.Fragment implement
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Floor floor = (Floor)listAdapter.getItem(position);
                 if (floor != null) {
-                    /*
-                    Intent intent = new Intent(getContext(), FloorDetailsActivity.class);
-                    intent.putExtra("FLOOR_ID", floor.getId());
-                    startActivity(intent);*/
-
                     FloorDetailsActivity newFragment = new FloorDetailsActivity();
                     Bundle args = new Bundle();
-                    //args.putLong("FLOOR_ID", floor.getId());
+                    args.putLong("FLOOR_ID", floor.getId());
                     newFragment.setArguments(args);
 
                     FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
