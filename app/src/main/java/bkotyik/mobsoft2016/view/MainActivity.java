@@ -15,6 +15,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.orm.SugarContext;
+
 import bkotyik.mobsoft2016.R;
 
 public class MainActivity extends AppCompatActivity
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         navigateToFragment(FloorListActivity.class);
+        SugarContext.init(getApplicationContext());
     }
 
     @Override

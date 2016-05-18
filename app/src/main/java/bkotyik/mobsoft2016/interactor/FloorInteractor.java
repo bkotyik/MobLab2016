@@ -65,7 +65,7 @@ public class FloorInteractor {
         return response.body();
     }
 
-    public Floor getFloorFromNetwork(int id) throws Exception {
+    public Floor getFloorFromNetwork(long id) throws Exception {
         Response<Floor> response = null;
         Call<Floor> call = api.floorsIdGet(BigDecimal.valueOf(id));
         try {
@@ -80,7 +80,7 @@ public class FloorInteractor {
         return response.body();
     }
 
-    public Floor getFloorFromDb(int id) {
+    public Floor getFloorFromDb(long id) {
         return model.fetchById(id);
     }
 

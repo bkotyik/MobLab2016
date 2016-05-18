@@ -21,7 +21,7 @@ public class FloorDetailsPresenter extends Presenter<FloorDetailsView> {
         IndoorMapApplication.injector.inject(this);
     }
 
-    public void loadFloor(int _id) {
+    public void loadFloor(long _id) {
         try {
             currentFloor = floorInteractor.getFloorFromNetwork(_id);
         } catch (Exception e) {

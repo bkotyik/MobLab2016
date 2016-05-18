@@ -13,7 +13,7 @@ public class FloorDbModel  {
         toInsert.save();
     }
 
-    public Floor fetchById(int id) {
+    public Floor fetchById(long id) {
         return Floor.findById(Floor.class, id);
     }
 

@@ -65,7 +65,30 @@ public class FloorMock {
                 responseCode = 200;
             }
 
-        } else {
+        } else if (uri.getPath().startsWith(NetworkConfig.ENDPOINT_PREFIX + "floors/") && request.method().equals("GET")) {
+            List<String> path = request.url().pathSegments();
+            if (path.size() == 2) {
+                // floors/{id}
+                int id = Integer.parseInt(path.get(1));
+                Floor requestedFloor = floorsList.get(id - 1);
+                responseString = GsonHelper.getGson().toJson(requestedFloor);
+                responseCode = 200;
+            } else if (path.size() == 3) {
+                // floors/{id}/employees
+                int floorId = Integer.parseInt(path.get(1));
+                List<Employee> workersOnFloor = new ArrayList<>();
+
+                for (Employee e: EmployeeMock.getMockEmployees()) {
+                    if (e.getFloorId() == floorId) {
+                        workersOnFloor.add(e);
+                    }
+                }
+                responseString = GsonHelper.getGson().toJson(workersOnFloor);
+                responseCode = 200;
+
+            }
+        }
+        else {
             responseString = "ERROR";
             responseCode = 503;
         }

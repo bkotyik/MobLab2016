@@ -93,7 +93,7 @@ public class FloorDetailsActivity extends Fragment implements FloorDetailsView {
 
 
         Bundle bundle = this.getArguments();
-        presenter.loadFloor(bundle.getInt("FLOOR_ID",0));
+        presenter.loadFloor(bundle.getLong("FLOOR_ID",0));
 
     }
 

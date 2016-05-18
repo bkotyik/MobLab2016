@@ -68,11 +68,11 @@ public class EmployeeInteractor {
         return response.body();
     }
 
-    public List<Employee> getEmployeesByFloorIdFromDb(int id) {
+    public List<Employee> getEmployeesByFloorIdFromDb(long id) {
         return model.fetchByFloorId(id);
     }
 
-    public List<Employee> getEmployeesByFloorIdFromNetwork(int id) throws Exception {
+    public List<Employee> getEmployeesByFloorIdFromNetwork(long id) throws Exception {
         Response<List<Employee>> response = null;
 
         Call<List<Employee>> call = fapi.floorsIdEmployeesGet(new BigDecimal(id));

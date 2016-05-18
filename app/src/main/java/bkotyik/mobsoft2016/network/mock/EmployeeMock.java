@@ -24,9 +24,19 @@ public class EmployeeMock {
     static List<Employee> employeesList = new ArrayList<>();
     static boolean isInitialised = false;
 
-    public static Employee testE1 = new Employee("Employee 1", "Room 1");
-    public static Employee testE2 = new Employee("Employee 2", "Room 2");
-    public static Employee testE3 = new Employee("Employee 3", "Room 3");
+    public static Employee testE1 = new Employee("Employee 1", "Room 1",1);
+    public static Employee testE2 = new Employee("Employee 2", "Room 2",2);
+    public static Employee testE3 = new Employee("Employee 3", "Room 3",3);
+
+    public static List<Employee> getMockEmployees() {
+        if (!isInitialised) {
+            employeesList.add(testE1);
+            employeesList.add(testE2);
+            employeesList.add(testE3);
+            isInitialised = true;
+        }
+        return employeesList;
+    }
 
     public static Response process(Request request) {
         Uri uri = Uri.parse(request.url().toString());
@@ -36,12 +46,7 @@ public class EmployeeMock {
         Headers headers = request.headers();
 
         if (uri.getPath().equals(NetworkConfig.ENDPOINT_PREFIX + "employees") && request.method().equals("GET")) {
-            if (!isInitialised) {
-                employeesList.add(testE1);
-                employeesList.add(testE2);
-                employeesList.add(testE3);
-                isInitialised = true;
-            }
+            getMockEmployees();
 
             if (request.url().queryParameter("name") == null) {
                 responseString = GsonHelper.getGson().toJson(employeesList);
