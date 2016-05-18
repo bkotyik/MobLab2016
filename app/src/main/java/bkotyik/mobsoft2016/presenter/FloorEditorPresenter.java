@@ -59,7 +59,7 @@ public class FloorEditorPresenter extends Presenter<FloorEditorView> {
         }
     }
 
-    public void loadFloor(int id) {
+    public void loadFloor(long id) {
         try {
             currentFloor = floorInteractor.getFloorFromNetwork(id);
         } catch (Exception e) {

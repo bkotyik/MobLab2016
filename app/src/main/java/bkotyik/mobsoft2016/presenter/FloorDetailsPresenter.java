@@ -49,4 +49,8 @@ public class FloorDetailsPresenter extends Presenter<FloorDetailsView> {
             view.showFloorDetails(currentFloor);
         }
     }
+
+    public Floor getCurrentFloor() {
+        return currentFloor;
+    }
 }

@@ -65,6 +65,25 @@ public class FloorMock {
                 responseCode = 200;
             }
 
+        } else if (uri.getPath().startsWith(NetworkConfig.ENDPOINT_PREFIX + "floors") && request.method().equals("PUT")) {
+            List<String> path = request.url().pathSegments();
+            if (path.size() == 2) {
+                final Buffer buffer = new Buffer();
+                RequestBody body = request.body();
+                String jsonString = MockHelper.bodyToString(request);
+
+                if (jsonString != null) {
+                    long newId = Long.parseLong(path.get(1));
+                    Floor floor = GsonHelper.getGson().fromJson(jsonString, Floor.class);
+                    floor.setId(newId);
+
+                    floorsList.set((int) newId - 1, floor);
+
+                    responseString = "";
+                    responseCode = 200;
+                }
+            }
+
         } else if (uri.getPath().startsWith(NetworkConfig.ENDPOINT_PREFIX + "floors/") && request.method().equals("GET")) {
             List<String> path = request.url().pathSegments();
             if (path.size() == 2) {

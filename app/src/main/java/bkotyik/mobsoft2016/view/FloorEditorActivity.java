@@ -42,8 +42,6 @@ public class FloorEditorActivity extends Fragment implements FloorEditorView {
         super.onStart();
         floorEditorPresenter.attachView(this);
 
-
-
         btnAddFloor = (Button)getView().findViewById(R.id.btnAddFloor);
         btnAddFloor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +64,9 @@ public class FloorEditorActivity extends Fragment implements FloorEditorView {
                 editEmployeeRoomNumber.setText("");
             }
         });
+
+        Bundle args = getArguments();
+        floorEditorPresenter.loadFloor(args.getLong("FLOOR_ID", 0));
     }
 
     @Override
@@ -75,8 +76,12 @@ public class FloorEditorActivity extends Fragment implements FloorEditorView {
     }
 
     @Override
-    public void showFloorDetails(Floor Floor) {
+    public void showFloorDetails(Floor floor) {
+        EditText editTextFloorName = (EditText)getView().findViewById(R.id.editFloorName);
+        EditText editTextFloorDescription = (EditText)getView().findViewById(R.id.editFloorDescription);
 
+        editTextFloorName.setText(floor.getName());
+        editTextFloorDescription.setText(floor.getDescription());
     }
 
     @Override

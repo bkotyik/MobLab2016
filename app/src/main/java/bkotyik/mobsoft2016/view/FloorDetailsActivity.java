@@ -78,7 +78,7 @@ public class FloorDetailsActivity extends Fragment implements FloorDetailsView {
 
                 FloorEditorActivity newFragment = new FloorEditorActivity();
                 Bundle args = new Bundle();
-                //args.putLong("FLOOR_ID", floor.getId());
+                args.putLong("FLOOR_ID", presenter.getCurrentFloor().getId());
                 newFragment.setArguments(args);
 
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
