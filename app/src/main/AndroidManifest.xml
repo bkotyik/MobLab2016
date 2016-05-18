@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="bkotyik.mobsoft2016">
-
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <application
         android:name=".IndoorMapApplication"
         android:allowBackup="true"
@@ -33,7 +33,6 @@
             android:name="bkotyik.mobsoft2016.view.FloorEditorActivity"
             android:label="@string/app_name">
         </activity>
-        <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
         <meta-data
             android:name="com.google.android.gms.version"
