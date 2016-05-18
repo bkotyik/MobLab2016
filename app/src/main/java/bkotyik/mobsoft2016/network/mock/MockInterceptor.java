@@ -28,8 +28,8 @@ public class MockInterceptor implements Interceptor {
 
         if (uri.getPath().startsWith(NetworkConfig.ENDPOINT_PREFIX + "employees")) {
             return EmployeeMock.process(request);
-        } else if (uri.getPath().startsWith(NetworkConfig.ENDPOINT_PREFIX + "employees")) {
-            return EmployeeMock.process(request);
+        } else if (uri.getPath().startsWith(NetworkConfig.ENDPOINT_PREFIX + "floors")) {
+            return FloorMock.process(request);
         } else {
             return MockHelper.makeResponse(request, headers, 404, "Unknown");
         }
