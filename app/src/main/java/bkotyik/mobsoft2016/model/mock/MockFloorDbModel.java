@@ -30,7 +30,7 @@ public class MockFloorDbModel extends FloorDbModel {
     }
 
     public void removeById(Long id) {
-        values.remove(id);
+        values.remove(fetchById(id));
     }
 
     public void update(Floor floor) {

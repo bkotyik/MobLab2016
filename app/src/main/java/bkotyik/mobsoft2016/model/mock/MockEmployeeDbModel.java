@@ -17,7 +17,6 @@ public class MockEmployeeDbModel extends EmployeeDbModel {
 
     @Override
     public List<Employee> fetch() {
-
         return values;
     }
 
@@ -28,11 +27,33 @@ public class MockEmployeeDbModel extends EmployeeDbModel {
 
 
     public List<Employee> fetchByFloorId(int id) {
-        return values;
+        LinkedList<Employee> v = new LinkedList<>();
+        for (Employee e: values) {
+            if (e.getFloorId() == (int)(long)id) {
+                v.add(e);
+            }
+        }
+        return v;
     }
 
     public List<Employee> fetchByEmployeeName(String name) {
-        return values;
+        LinkedList<Employee> v = new LinkedList<>();
+        for (Employee e: values) {
+            if (e.getName().equals(name)) {
+                v.add(e);
+            }
+        }
+        return v;
+    }
+
+    public void removeByFloorId(Long id) {
+        LinkedList<Employee> v = new LinkedList<>();
+        for (Employee e: values) {
+            if (e.getFloorId() != (int)(long)id) {
+                v.add(e);
+            }
+        }
+        values = v;
     }
 
 }

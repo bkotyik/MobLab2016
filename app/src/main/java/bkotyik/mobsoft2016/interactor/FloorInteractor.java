@@ -10,6 +10,7 @@ import bkotyik.mobsoft2016.IndoorMapApplication;
 import bkotyik.mobsoft2016.model.Employee;
 import bkotyik.mobsoft2016.model.Floor;
 import bkotyik.mobsoft2016.model.NewFloor;
+import bkotyik.mobsoft2016.model.full.EmployeeDbModel;
 import bkotyik.mobsoft2016.model.full.FloorDbModel;
 import bkotyik.mobsoft2016.network.FloorsApi;
 import retrofit2.Call;
@@ -20,6 +21,8 @@ public class FloorInteractor {
     FloorDbModel model;
     @Inject
     FloorsApi api;
+    @Inject
+    EmployeeDbModel employeeModel;
 
     private List<Floor> employees;
 
@@ -140,6 +143,9 @@ public class FloorInteractor {
     }
 
     public void setEmployeesToFloorDb(Long id, List<Employee> employeeList) {
-
+        employeeModel.removeByFloorId(id);
+        for (Employee e: employeeList) {
+            employeeModel.insert(e);
+        }
     }
 }

@@ -1,6 +1,8 @@
 package bkotyik.mobsoft2016.model.full;
 
 import java.util.List;
+
+import bkotyik.mobsoft2016.model.Employee;
 import bkotyik.mobsoft2016.model.Floor;
 
 public class FloorDbModel  {
@@ -18,10 +20,7 @@ public class FloorDbModel  {
     }
 
     public void removeById(Long id) {
-        Floor floor = Floor.findById(Floor.class, id);
-        if (floor != null) {
-            Floor.delete(floor);
-        }
+        Floor.deleteAll(Floor.class, "id = ?", id.toString());
     }
 
     public void update(Floor floor) {
