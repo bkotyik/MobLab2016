@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        navigateToFragment(FloorListActivity.class);
         SugarContext.init(getApplicationContext());
 
         // Analytics
@@ -56,6 +55,9 @@ public class MainActivity extends AppCompatActivity
 
         // Fabric
         Fabric.with(this, new Crashlytics());
+
+        navigateToFragment(FloorListActivity.class);
+
     }
 
     @Override
