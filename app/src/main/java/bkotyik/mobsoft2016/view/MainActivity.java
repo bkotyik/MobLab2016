@@ -5,6 +5,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,12 +16,20 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.orm.SugarContext;
 
+import bkotyik.mobsoft2016.IndoorMapApplication;
 import bkotyik.mobsoft2016.R;
+
+import com.crashlytics.android.Crashlytics;
+import io.fabric.sdk.android.Fabric;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private Tracker mTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +49,13 @@ public class MainActivity extends AppCompatActivity
 
         navigateToFragment(FloorListActivity.class);
         SugarContext.init(getApplicationContext());
+
+        // Analytics
+        IndoorMapApplication application = (IndoorMapApplication) getApplication();
+        mTracker = application.getDefaultTracker();
+
+        // Fabric
+        Fabric.with(this, new Crashlytics());
     }
 
     @Override
@@ -95,6 +111,10 @@ public class MainActivity extends AppCompatActivity
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        Log.i("MobLab16", "Setting screen name: " + fragmentClass.getName());
+        mTracker.setScreenName("Image~" + fragmentClass.getName());
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
 
         // Insert the fragment by replacing any existing fragment
         FragmentManager fragmentManager = getSupportFragmentManager();

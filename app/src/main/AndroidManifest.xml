@@ -15,6 +15,9 @@
         <meta-data android:name="VERSION" android:value="3" />
         <meta-data android:name="QUERY_LOG" android:value="true" />
         <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="bkotyik.mobsoft2016.model" />
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="af1fe89a1a41f10dfc7b020da27e0ae13fd30e1b" />
         <activity
             android:name=".view.MainActivity"
             android:label="@string/app_name">
