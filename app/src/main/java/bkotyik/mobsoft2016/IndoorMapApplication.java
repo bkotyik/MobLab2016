@@ -1,6 +1,7 @@
 package bkotyik.mobsoft2016;
 
 import android.app.Application;
+import android.support.multidex.MultiDexApplication;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
@@ -8,7 +9,7 @@ import com.google.android.gms.analytics.Tracker;
 import bkotyik.mobsoft2016.view.ViewModule;
 
 
-public class IndoorMapApplication extends Application {
+public class IndoorMapApplication extends MultiDexApplication {
 
     public static IndoorMapComponent injector;
     private Tracker mTracker;
