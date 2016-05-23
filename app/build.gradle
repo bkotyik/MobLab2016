@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 23
@@ -58,11 +59,11 @@ dependencies {
     compile "io.swagger:swagger-annotations:$swagger_annotations_version"
     compile 'com.android.support:design:23.1.1'
 
-
+    compile 'com.google.android.gms:play-services-analytics:9.0.0'
+    compile 'com.google.android.gms:play-services:9.0.0'
     //Robolectric
     testCompile('org.robolectric:shadows-support-v4:3.0-rc3') {
         exclude group: 'commons-logging', module: 'commons-logging'
         exclude group: 'org.apache.httpcomponents', module: 'httpclient'
     }
-    compile 'com.google.android.gms:play-services-appindexing:8.1.0'
 }
